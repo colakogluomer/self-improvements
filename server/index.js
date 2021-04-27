@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
+import postRoutes from "./routes/post.js";
 
 dotenv.config();
 const app = express();
@@ -13,6 +14,7 @@ app.use(cors());
 
 const PORT = process.env.PORT;
 
+app.use("/post", postRoutes);
 app.use("/", (req, res) => {
   console.log("This is backend");
   res.send("Hello there!");
